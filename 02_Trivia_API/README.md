@@ -108,13 +108,13 @@ The error codes are:
 
 ### Endpoints
 The following are the endpoints:
-        GET '/questions'
-        POST '/questions'
-        DELETE '/questions
-        GET '/categories'
-        GET '/categories/<int:category_id>/questions'
-        POST '/search'
-        GET '/quizzes'
+* GET '/questions'
+* POST '/questions'
+* DELETE '/questions
+* GET '/categories'
+* GET '/categories/<int:category_id>/questions'
+* POST '/search'
+* GET '/quizzes'
 #### GET /categories
 
 - General: 
