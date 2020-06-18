@@ -15,7 +15,7 @@ class TriviaTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "trivia_test"
-        self.database_path = "postgres://{}:{}@{}/{}".format('sara', 'sara','localhost:5432', database_name)
+        self.database_path = "postgres://{}:{}@{}/{}".format('sara', 'sara','localhost:5432', self.database_name)
         setup_db(self.app, self.database_path)
 
         # binds the app to the current context
@@ -73,20 +73,10 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_delete_the_post_questions(self):
 
-        body = {'searchTerm': 'Peanut Butter'}
+        body = {'searchTerm': 'Taj Mahal'}
         response = self.client().post('/search', json=body)
         data = json.loads(response.data)
-        id = int(data['questions'][-1]['id'])
-        del_response = self.client().delete(f'/questions/{id}')
-        self.assertEqual(del_response.status_code, 200, 'DELETE is not succesful!')  
-
-    def test_search_not_found(self):
-
-        body = { 'searchTerm': 'TjaMahalldede', }
-        response = self.client().post('/questions/search', json=body)
-        data = json.loads(response.data)
-        self.assertEqual(response.status_code, 404,'Resource not found')
-        self.assertEqual(data['success'], False)   
+        self.assertTrue((len(data['questions'])), '1')  
 
     def test_quizzes(self):
         body= {
@@ -97,7 +87,7 @@ class TriviaTestCase(unittest.TestCase):
         }
         response = self.client().post('/quizzes', json=body)
         data = json.loads(response.data)
-        self.assertEqual((data['category_']), id, 'Category do not match')
+        self.assertEqual((data['category_']), 2, 'Category do not match')
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
