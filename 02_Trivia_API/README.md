@@ -58,7 +58,7 @@ To run the tests, run
 dropdb trivia_test
 createdb trivia_test
 psql trivia_test < trivia.psql
-python test_flaskr.py
+python3 test_flaskr.py
 ```
 
 #### Frontend Dependencies
@@ -268,7 +268,7 @@ The following are the endpoints:
 - General:
   - returns questions that has the search substring
 
-- Sample: `curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Taj Mahal"}'`
+- Testing Command: `curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Taj Mahal"}'`
 ```json
 {
   "current_category": null, 
