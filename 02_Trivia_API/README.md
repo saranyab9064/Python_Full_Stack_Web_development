@@ -23,7 +23,7 @@ Navigate to the '/backend' directory and run the text file. The text file will i
 necessary packages for running our project file on local machine
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ##### Key Dependencies
